@@ -4,6 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Building Drupal...
+      - chmod 755 ./scripts/build/artifact.sh
       - ./scripts/build/artifact.sh
       - echo Logging in to Amazon ECR...
       - aws --version
