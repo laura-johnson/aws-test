@@ -20,8 +20,7 @@ docker run -d --name $name -v `pwd`/$project_dir:/deploy php:7.2-cli-stretch tai
 docker exec $name bash -c "apt-get update && apt-get install -y gnupg unzip git libpng-dev libbz2-dev libmcrypt-dev"
 docker exec $name bash -c "pecl install mcrypt-1.0.1 && docker-php-ext-enable mcrypt"
 docker exec $name bash -c "docker-php-ext-install gd \
-  && docker-php-ext-install bz2 \
-  && docker-php-ext-install pdo pdo_mysql"
+  && docker-php-ext-install bz2"
 
 # Install Composer.
 docker exec $name bash -c "php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\" \
