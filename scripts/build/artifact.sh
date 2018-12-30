@@ -17,8 +17,7 @@ printf "Starting the build container.\n"
 docker run -d --name $name -v `pwd`/$project_dir:/deploy php:7.2-cli-stretch tail -f /dev/null
 
 # Install dependencies.
-docker exec $name bash -c "apt-get update && apt-get install -y gnupg unzip git libpng-dev libbz2-dev libmcrypt-dev"
-docker exec $name bash -c "pecl install mcrypt-1.0.1 && docker-php-ext-enable mcrypt"
+docker exec $name bash -c "apt-get update && apt-get install -y gnupg unzip git libpng-dev libbz2-dev"
 docker exec $name bash -c "docker-php-ext-install gd \
   && docker-php-ext-install bz2"
 
