@@ -66,12 +66,12 @@
     },
     "extra": {
         "installer-paths": {
-            "web/": ["type:drupal-core"],
-            "web/profiles/{$name}/": ["type:drupal-profile"],
-            "web/sites/all/drush/{$name}/": ["type:drupal-drush"],
-            "web/sites/all/libraries/{$name}/": ["type:drupal-library"],
-            "web/sites/all/modules/contrib/{$name}/": ["type:drupal-module"],
-            "web/sites/all/themes/contrib/{$name}/": ["type:drupal-theme"]
+            "docroot/": ["type:drupal-core"],
+            "docroot/profiles/{$name}/": ["type:drupal-profile"],
+            "docroot/sites/all/drush/{$name}/": ["type:drupal-drush"],
+            "docroot/sites/all/libraries/{$name}/": ["type:drupal-library"],
+            "docroot/sites/all/modules/contrib/{$name}/": ["type:drupal-module"],
+            "docroot/sites/all/themes/contrib/{$name}/": ["type:drupal-theme"]
         },
         "patches": {
             "cweagans/composer-patches": {
@@ -79,15 +79,15 @@
             }
         },
         "preserve-paths": [
-            "web/sites/all/drush",
-            "web/sites/all/libraries",
-            "web/sites/all/modules/contrib",
-            "web/sites/all/modules/custom",
-            "web/sites/all/modules/features",
-            "web/sites/all/themes/contrib",
-            "web/sites/all/themes/custom",
-            "web/sites/all/translations",
-            "web/sites/default"
+            "docroot/sites/all/drush",
+            "docroot/sites/all/libraries",
+            "docroot/sites/all/modules/contrib",
+            "docroot/sites/all/modules/custom",
+            "docroot/sites/all/modules/features",
+            "docroot/sites/all/themes/contrib",
+            "docroot/sites/all/themes/custom",
+            "docroot/sites/all/translations",
+            "docroot/sites/default"
         ]
     }
 }

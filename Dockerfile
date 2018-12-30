@@ -10,6 +10,12 @@ COPY deploy/ /var/www/$PROJECT
 # Copy the Drupal container settings file into place.
 COPY docker/settings.container.php /var/www/$PROJECT/docroot/sites/default/settings.container.php
 
+RUN cd /var/www/$PROJECT/
+
+RUN ls
+
+RUN cd /
+
 # Set a custom docroot since BLT uses 'docroot'.
 ENV APACHE_DOCUMENT_ROOT /var/www/$PROJECT/docroot
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
