@@ -1,5 +1,5 @@
 # Note: Your base image should contain all the PHP extensions required by your project.
-FROM php/php:7.2-apache-stretch
+FROM php:7.2-apache-stretch
 
 # Set the project machine name here.
 ENV PROJECT my-d7-project
