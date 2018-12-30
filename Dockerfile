@@ -7,14 +7,14 @@ ENV PROJECT my-d7-project
 # Copy the deployment artifact into place.
 COPY deploy/ /var/www/$PROJECT
 
-# Copy the Drupal container settings file into place.
-COPY docker/settings.container.php /var/www/$PROJECT/docroot/sites/default/settings.container.php
-
 RUN cd /var/www/$PROJECT/
 
 RUN ls
 
 RUN cd /
+
+# Copy the Drupal container settings file into place.
+COPY docker/settings.container.php /var/www/$PROJECT/docroot/sites/default/settings.container.php
 
 # Set a custom docroot since BLT uses 'docroot'.
 ENV APACHE_DOCUMENT_ROOT /var/www/$PROJECT/docroot
