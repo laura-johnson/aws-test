@@ -30,11 +30,11 @@ docker exec $name bash -c "php -r \"copy('https://getcomposer.org/installer', 'c
 printf "Creating the deploy artifact.\n"
 mkdir $project_dir/deploy/
 
-cp . $project_dir/deploy/
+cp composer.json $project_dir/deploy/composer.json
 
 cd deploy
 
-composer install
+docker exec $name bash -c "composer install"
 
 # Destroy the build container.
 docker rm -f $name
