@@ -19,19 +19,22 @@ docker run -d --name $name -v `pwd`/$project_dir:/deploy php:7.2-cli-stretch tai
 # Install dependencies.
 docker exec $name bash -c "apt-get update && apt-get install -y gnupg unzip git libpng-dev libbz2-dev"
 docker exec $name bash -c "docker-php-ext-install gd \
-  && docker-php-ext-install bz2"
+  && docker-php-ext-install bz2 \
+  && docker-php-ext-install pdo pdo_mysql"
 
 # Install Composer.
 docker exec $name bash -c "php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\" \
   && php composer-setup.php \
   && mv composer.phar /usr/local/bin/composer"
 
-docker exec $name bash -c "mkdir deploy"
+printf "Creating the deploy artifact.\n"
+mkdir $project_dir/deploy/
 
-docker exec $name bash -c "cp . deploy/"
+cp . $project_dir/deploy/
 
-# Install dependencies.
-docker exec $name bash -c "cd deploy && composer install"
+cd deploy
+
+composer install
 
 # Destroy the build container.
 docker rm -f $name
