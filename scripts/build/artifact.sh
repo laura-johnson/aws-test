@@ -26,6 +26,10 @@ docker exec $name bash -c "php -r \"copy('https://getcomposer.org/installer', 'c
   && php composer-setup.php \
   && mv composer.phar /usr/local/bin/composer"
 
+docker exec $name bash -c "mkdir deploy"
+
+docker exec $name bash -c "cp . deploy/"
+
 # Install dependencies.
 docker exec $name bash -c "cd deploy && composer install"
 

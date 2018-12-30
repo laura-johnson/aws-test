@@ -5,7 +5,7 @@ FROM php:7.2-apache-stretch
 ENV PROJECT my-d7-project
 
 # Copy the deployment artifact into place.
-COPY . /var/www/$PROJECT
+COPY deploy/ /var/www/$PROJECT
 
 # Copy the Drupal container settings file into place.
 COPY docker/settings.container.php /var/www/$PROJECT/docroot/sites/default/settings.container.php
